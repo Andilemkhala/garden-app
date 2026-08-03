@@ -4,16 +4,30 @@
 // and plant type for gardening enthusiasts
 // ============================================
 
+// Constants for valid season values - using these instead of raw strings
+// throughout the file means a typo becomes a clear reference error rather
+// than a silent "no advice found" fallback.
+const SEASONS = {
+    SUMMER: "summer",
+    WINTER: "winter"
+};
+
+// Constants for valid plant type values, for the same reason as above.
+const PLANT_TYPES = {
+    FLOWER: "flower",
+    VEGETABLE: "vegetable"
+};
+
 /**
  * Returns gardening advice based on the current season.
  * @param {string} season - The current season (e.g., "summer", "winter")
  * @returns {string} - Advice for the given season
  */
 function getSeasonAdvice(season) {
-    if (season === "summer") {
+    if (season === SEASONS.SUMMER) {
         // Summer advice: focus on watering and shade
         return "Water your plants regularly and provide some shade.\n";
-    } else if (season === "winter") {
+    } else if (season === SEASONS.WINTER) {
         // Winter advice: protect plants from cold temperatures
         return "Protect your plants from frost with covers.\n";
     } else {
@@ -28,10 +42,10 @@ function getSeasonAdvice(season) {
  * @returns {string} - Advice for the given plant type
  */
 function getPlantAdvice(plantType) {
-    if (plantType === "flower") {
+    if (plantType === PLANT_TYPES.FLOWER) {
         // Flower advice: encourage blooming with fertiliser
         return "Use fertiliser to encourage blooms.";
-    } else if (plantType === "vegetable") {
+    } else if (plantType === PLANT_TYPES.VEGETABLE) {
         // Vegetable advice: monitor for pests
         return "Keep an eye out for pests!";
     } else {
@@ -55,9 +69,10 @@ function getGardenAdvice(season, plantType) {
     return advice;
 }
 
-// Define the current season and plant type
-let season = "summer";
-let plantType = "flower";
+// Define the current season and plant type using the constants above,
+// instead of raw string literals.
+let season = SEASONS.SUMMER;
+let plantType = PLANT_TYPES.FLOWER;
 
 // Generate the gardening advice and display it in the console
 let advice = getGardenAdvice(season, plantType);
