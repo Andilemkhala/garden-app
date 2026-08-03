@@ -9,7 +9,9 @@
 // than a silent "no advice found" fallback.
 const SEASONS = {
     SUMMER: "summer",
-    WINTER: "winter"
+    WINTER: "winter",
+    SPRING: "spring",
+    AUTUMN: "autumn"
 };
 
 // Constants for valid plant type values, for the same reason as above.
@@ -30,6 +32,12 @@ function getSeasonAdvice(season) {
     } else if (season === SEASONS.WINTER) {
         // Winter advice: protect plants from cold temperatures
         return "Protect your plants from frost with covers.\n";
+    } else if (season === SEASONS.SPRING) {
+        // Spring advice: prepare soil and plant seeds
+        return "Prepare the soil and plant seeds for a new growing season.\n";
+    } else if (season === SEASONS.AUTUMN) {
+        // Autumn advice: harvest crops and prepare garden for winter
+        return "Harvest your crops and prepare the garden for winter.\n";
     } else {
         // Default advice when season is not recognised
         return "No advice for this season.\n";
